@@ -1,0 +1,88 @@
+openapi: 3.0.0
+info:
+  title: zbMATH Fine-Grained MSC Prediction API
+  version: 1.0.0
+servers:
+  - url: http://localhost:8000
+paths:
+  /:
+    get:
+      summary: Homepage
+      description: Returns the HTML homepage with example queries.
+      responses:
+        '200':
+          description: Successful response
+          content:
+            text/html:
+              schema:
+                type: string
+  /predict_text_keywords_qids:
+    get:
+      summary: Predict keywords and Wikidata QIDs from text
+      parameters:
+        - name: text
+          in: query
+          description: The (abstract) text for prediction.
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  keywords:
+                    type: array
+                    items:
+                      type: string
+                  qids:
+                    type: array
+                    items:
+                      type: string
+  /predict_text_mscs:
+    get:
+      summary: Predict MSCs from text
+      parameters:
+        - name: text
+          in: query
+          description: The (abstract) text for prediction.
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  mscs:
+                    type: array
+                    items:
+                      type: string
+  /predict_keyword_mscs:
+    get:
+      summary: Predict MSCs from keywords
+      parameters:
+        - name: keywords
+          in: query
+          description: Comma-separated list of keywords.
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  mscs:
+                    type: array
+                    items:
+                      type: string

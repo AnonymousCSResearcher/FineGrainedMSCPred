@@ -132,7 +132,7 @@ The figure below shows a screenshot of the explainer demo UI
 
 ## Wikisource Entity Linking (Wikification)
 
-Data and algorithms can be found in the folder 'EntityLinking'.
+Data and algorithms can be found in the folder 'src/entity linking'.
 
 ### 1) View manual evaluation
 

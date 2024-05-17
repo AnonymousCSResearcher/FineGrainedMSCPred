@@ -1,4 +1,4 @@
-# Explainable Fine-Grained Document Classification for Mathematical Texts
+# Explainable Fine-Grained Document Classification for Mathematical and Medical Texts
 
 This manual provides descriptions to reproduce the results of the associated paper.
 

@@ -9,7 +9,10 @@ RUN curl -LJO https://zenodo.org/records/10251194/files/ent_cls_idx.json && mv e
 
 # Install requirements
 COPY requirements.txt ./
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install --upgrade pip && \
+    pip install --no-cache-dir --use-feature=fast-deps -r requirements.txt
+    # \
+    #    --use-deprecated=legacy-resolver
 
 # Copy code
 COPY . /app
